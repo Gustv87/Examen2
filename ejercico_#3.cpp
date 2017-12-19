@@ -12,59 +12,53 @@ struct Nodo
     };
 
 // Prototipos
-void menu();
+
 Nodo *crearNodo(int);
 void insertarNodo(Nodo *&, int);
 void mostrarArbol(Nodo *, int);
-Nodo *arbol = NULL;
+void preOrden(Nodo * );
+void inOrden(Nodo *);
+void postOrden(Nodo *);
 
 
 int main()
     {
-    menu();
+    Nodo *arbol = NULL;
 
-    getch();
+    int n;
+    int x;
+
+    cout << "\n -------Arbol Binario-------   \n\n";
+
+    cout << " Cantidad de nodos del arbol:  ";
+    cin >> n;
+    cout << endl;
+
+    for(int i=0; i<n; i++)
+        {
+        cout << " Numero del nodo " << i+1 << ": ";
+        cin >> x;
+        insertarNodo(arbol, x);
+        }
+
+    cout << "\n Mostrando Arboles Binarios de Busqueda \n\n";
+    mostrarArbol(arbol, 0);
+
+    cout << "\n Recorridos del Arboles Binarios de Busqueda..";
+
+    cout << "\n\n En orden   :  ";
+    inOrden(arbol);
+    cout << "\n\n Pre Orden  :  ";
+    preOrden(arbol);
+    cout << "\n\n Post Orden :  ";
+    postOrden(arbol);
+
+    cout << endl << endl;
+
+    system("pause");
     return 0;
     }
 
-
-//Menu
-void menu()
-    {
-    int dato, opcion, contador =0;
-
-    do
-        {
-        cout << "\tMenu" << endl;
-        cout << "1. Insertar un nuevo nodo" << endl;
-        cout << "2. Mostrar el arbol" << endl;
-        cout << "3. Salir" << endl;
-
-        cout << "Opcion: ";
-        cin >> opcion;
-
-        switch(opcion)
-            {
-            case 1 :
-                cout<<"\nDigite un numero: ";
-                cin>>dato;
-                insertarNodo(arbol,dato);
-                cout<<"\n";
-                system("pause");
-                break;
-
-            case 2:cout<<"\nArbol Completo:\n\n";
-                   mostrarArbol(arbol,contador);
-                   cout<<"\n";
-                   system("pause");
-                   break;
-
-            }
-        system("cls");
-
-        }
-    while (opcion != 3);
-    }
 
 //Funcion para crear un nodo nuevo
 
@@ -122,4 +116,48 @@ void mostrarArbol(Nodo *arbol, int cont)
         mostrarArbol(arbol->izquierda,cont+1);
         }
     }
+//Funcion PreOrden
 
+void preOrden(Nodo *arbol)
+    {
+    if(arbol == NULL)
+        {
+        return;
+        }
+    else
+        {
+        cout<<arbol->dato<<" _ ";
+        preOrden(arbol->izquierda);
+        preOrden(arbol->derecha);
+        }
+    }
+
+//Funcion InOrden
+void inOrden(Nodo *arbol)
+    {
+    if(arbol == NULL)
+        {
+        return;
+        }
+    else
+        {
+        inOrden(arbol->izquierda);
+        cout<<arbol->dato<<" _ ";
+        inOrden(arbol->derecha);
+        }
+    }
+
+//Funcion postOrden
+void postOrden(Nodo *arbol)
+    {
+    if(arbol == NULL)
+        {
+        return;
+        }
+    else
+        {
+        postOrden(arbol->izquierda);
+        postOrden(arbol->derecha);
+        cout<<arbol->dato<<" _ ";
+        }
+    }
