@@ -62,7 +62,17 @@ void Pila::Cima(){
     (Valor 5%)
 */
 int Pila::Desapilar(void){
-
+int x;
+    Puntero p_aux;
+    if(cima==NULL)
+        cout<<"\n\n\tPila Vacia...!!";
+    else{
+        p_aux=cima;
+        x=p_aux->nro;
+        cima=cima->sgte;
+        delete(p_aux);
+    }
+    return x;
 }
 
 void Pila::MostrarPila(void){
@@ -87,7 +97,7 @@ void Pila::DestruirPila(void){
 void menu(void)
 {
     cout<<"\t -------------------------------------------\n";
-    cout<<"\t|        IMPLEMENTACIĆ“N DE UNA PILA         |\n";
+    cout<<"\t|        IMPLEMENTACION DE UNA PILA         |\n";
     cout<<"\t|-------------------------------------------|\n";
     cout<<" \t|                                           |"<<endl;
     cout<<" \t|  1. APILAR                                |"<<endl;
@@ -98,7 +108,7 @@ void menu(void)
     cout<<" \t|  6. SALIR                                 |"<<endl;
     cout<<" \t|                                           |"<<endl;
     cout<<"\t -------------------------------------------\n";
-    cout<<"\t Ingrese opciĆ³n: ";
+    cout<<"\t Ingrese opcion: ";
 }
 
 int main(void ){
@@ -116,7 +126,7 @@ int main(void ){
         switch(op)
         {
             case 1:
-                    cout<< "\n\t INGRESE NĆMERO A APILAR: ";
+                    cout<< "\n\t INGRESE NUMERO A APILAR: ";
                     cin>> x;
                     pila.Apilar(x);
                     cout<<"\n\n\t\tNĆŗmero " << x << " apilado...\n\n";
