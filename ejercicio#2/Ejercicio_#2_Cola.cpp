@@ -72,7 +72,7 @@ void Cola::MostrarCola(void){
     Puntero p_aux;
      p_aux=delante;
      while(p_aux!=NULL){
-        cout<<"\n\n\t"<<p_aux->nro;
+        cout<<"\n\t"<<p_aux->nro;
         p_aux=p_aux->sgte;
      }
 
