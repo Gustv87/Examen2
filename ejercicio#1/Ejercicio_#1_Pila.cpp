@@ -47,7 +47,7 @@ void Pila::Apilar(int x){
 void Pila::Cima(){
     int x;
     if(cima==NULL)
-        cout<<"\n\n\tPila Vacia...!";
+        cout<<"\n\n\t Pila Vacia...!";
 
     else {
         x=cima->nro;
@@ -65,7 +65,7 @@ int Pila::Desapilar(void){
 int x;
     Puntero p_aux;
     if(cima==NULL)
-        cout<<"\n\n\tPila Vacia...!!";
+        cout<<"\n\n\t Pila Vacia...!!";
     else{
         p_aux=cima;
         x=p_aux->nro;
@@ -129,15 +129,15 @@ int main(void ){
                     cout<< "\n\t INGRESE NUMERO A APILAR: ";
                     cin>> x;
                     pila.Apilar(x);
-                    cout<<"\n\n\t\tNĆŗmero " << x << " apilado...\n\n";
+                    cout<<"\n\n\t\tNumero " << x << " apilado...\n\n";
                     break;
 
             case 2:
                     if(pila.PilaVacia()==true)
-                        cout<<"\n\n\tPila VacĆ­a....";
+                        cout<<"\n\n\tPila Vacia....";
                     else{
                         x = pila.Desapilar( );
-                        cout<<"\n\n\tNĆŗmero "<<x<<" desapilado\n";
+                        cout<<"\n\n\tNumero "<<x<<" desapilado\n";
                         }
                     break;
 
@@ -147,7 +147,7 @@ int main(void ){
                     if(pila.PilaVacia()!=true)
                         pila.MostrarPila(  );
                     else
-                        cout<<"\n\n\tPila vacĆ­a..!"<<endl;
+                        cout<<"\n\n\tPila vacia..!"<<endl;
                     break;
 
 
